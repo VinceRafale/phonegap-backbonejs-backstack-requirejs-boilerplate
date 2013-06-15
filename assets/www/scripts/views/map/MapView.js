@@ -1,30 +1,25 @@
-/**
- * Created by Piotr Walczyszyn (outof.me | @pwalczyszyn)
- *
- * User: pwalczys
- * Date: 2/16/12
- * Time: 9:53 AM
- */
+define(['underscore', 'Backbone', 'text!views/map/MapView.tpl', 'models/MapModel'],
+    function (_, Backbone, MapViewTemplate, MapModel) {
 
-define(['underscore', 'Backbone', 'text!views/next/NextView.tpl'],
-    function (_, Backbone, NextViewTemplate) {
-
-        var NextView = Backbone.View.extend({
+        var MapView = Backbone.View.extend({
+            initialize: function() {
+                console.log(new MapModel);
+            },
 
             events:{
                 'click #btnBack':'btnBack_clickHandler'
             },
 
             render:function () {
-                this.$el.html(_.template(NextViewTemplate));
+                this.$el.html(_.template(MapViewTemplate));
                 return this;
             },
 
             btnBack_clickHandler:function (event) {
-                $.mobile.jqmNavigator.popView();
+                App.StackNavigator.popView();
             }
 
         });
 
-        return NextView;
+        return MapView;
     });

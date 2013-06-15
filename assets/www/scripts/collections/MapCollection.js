@@ -1,7 +1,9 @@
 define(['jquery', 'underscore', 'Backbone'],
 	function($, _, Backbone) {
-		var MapCollection = new App.Collections.Tasks([
+		var MapCollection = Backbone.Collection.extend({  
 		
 		});
+
+		return MapCollection;
 	});
 
